@@ -28,7 +28,7 @@ const NavBar = () => {
                     <Link
                     to='features'
                     smooth={true}
-                    duration={500}
+                    duration={800}
                     offset={-70}
                     >
                         About
@@ -44,7 +44,7 @@ const NavBar = () => {
                     <Link
                     to='testimonials'
                     smooth={true}
-                    duration={500}
+                    duration={800}
                     offset={-70}
                     >
                         Testimonials
@@ -60,7 +60,7 @@ const NavBar = () => {
                     <Link
                     to='pricing'
                     smooth={true}
-                    duration={500}
+                    duration={800}
                     offset={-70}
                     >
                         Pricing
