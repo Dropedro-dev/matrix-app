@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, useAnimation } from 'framer-motion';
 import Modal from 'react-modal'
 
@@ -14,29 +14,15 @@ const Pricing = () => {
       id: 2,
       title: 'Standard',
       price: 'R$29,99',
-      features: ["Feature 1", "Feature 2", "Feature 3", "Feature 4"]
+      features: ["Feature 1", "Feature 2", "Feature 3"]
     },
     {
       id: 3,
       title: 'Prime',
       price: 'R$69,99',
-      features: ["Feature 1", "Feature 2", "Feature 3", "Feature 4", "Feature 5"]
+      features: ["Feature 1", "Feature 2", "Feature 3"]
     }
   ];
-
-  const [selectedPlan, setSelectedPlan] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleChosePlan = (plan) => {
-    setSelectedPlan(plan);
-    setIsModalOpen(true); 
-  }
-
-  const handleCloseModal = () => {
-    setSelectedPlan(null);
-    setIsModalOpen(false); 
-  }
-
 
   const controls = useAnimation();
 
@@ -55,6 +41,19 @@ const Pricing = () => {
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, [controls]);
+
+  const [selectedPlan, setSelectedPlan] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleChoosePlan = (plan) => {
+    setSelectedPlan(plan);
+    setIsModalOpen(true); 
+  }
+
+  const handleCloseModal = () => {
+    setSelectedPlan(null);
+    setIsModalOpen(false); 
+  }
 
   return (
     <section className="bg-transparent px-10 py-16" id='pricing'>
@@ -83,8 +82,9 @@ const Pricing = () => {
                     initial={{opacity: 0, y:10}}
                     animate={controls}
                     transition={{duration: .8}}
+                    onClick={() => handleChoosePlan(option)}
                   >
-                    Chose Plan
+                    Choose Plan
                   </motion.button>
                 </div>
               </div>
@@ -95,7 +95,7 @@ const Pricing = () => {
       <Modal
         isOpen={isModalOpen}
         onRequestClose={handleCloseModal}
-        contentLabel="Pla Details"
+        contentLabel="Plan Details"
         className="modal fixed inset-0 flex items-center justify-center"
         overlayClassName="modal-overlay fixed inset-0 bg-black bg-opacity-50"
       >
@@ -117,6 +117,13 @@ const Pricing = () => {
                 ))}
               </ul>
             </div>
+            
+            <button
+              onClick={handleCloseModal}
+              className='bg-white bg-opacity-20 hover:bg-opacity-80 text-green-500 hover:text-green-600 font-semibold py-2 p-3 mx-6 rounded-full shadow-lg'
+            >
+              Close
+            </button>
           </motion.div>
         }
       </Modal>
