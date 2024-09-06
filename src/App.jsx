@@ -6,7 +6,7 @@ const App = () => {
     <div className="min-h-screen overflow-hidden">
       <MatrixRainingCode className="absolute inset-0"/>
       <div className="flex flex-col">
-        <NavBar />
+        <NavBar/>
         <Hero />
         <Features />
         <Testimonials />
