@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { motion, useAnimation } from 'framer-motion'
+import {CustonButton} from './'
 
 const Testimonials = () => {
   const testimonials = [
@@ -56,6 +57,9 @@ const Testimonials = () => {
             </motion.div>
           ))}
         </div>
+      </div>
+      <div className=" flex justify-center mt-10">
+        <CustonButton text='next section' link='pricing' />
       </div>
     </section>
   )

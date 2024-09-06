@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { CustonButton } from './'
+import { CustonButton, Testimonials } from './'
 
 import coms from '../assets/coms.svg'
 import EarPhone from '../assets/EarPhone.svg'
@@ -36,7 +36,7 @@ const Features = () => {
             transition={{ duration: 1 }}
           >
             <img src={EarPhone} className='w-16 h-16 object-contain mb-4' />
-            <h3 className="text-xl font-bold text-white mb-2">Feature 2</h3>
+            <h2 className="text-xl font-bold text-white mb-2">Feature 2</h2>
             <p className="text-gray-300 text-center">
               This is some text about the matrix, this test is just a placeholder
             </p>
@@ -56,7 +56,7 @@ const Features = () => {
         </div>
       </div>
         <div className=" flex justify-center mt-10">
-          <CustonButton text='next section'  />
+          <CustonButton text='next section' link={'testimonials'} />
         </div>
     </section>
   )
